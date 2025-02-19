@@ -20,12 +20,12 @@ public class Driver : Mashina
     //methods
     public void UpgrateRating(int newRating)
     {
-        rating = newRating; //рейтинг змінюється за підсумками гонки, тому потребує оновлення
+        Rating = newRating; //рейтинг змінюється за підсумками гонки, тому потребує оновлення
     }
 
     public void GetCar(Car car)
     {
         this.Car = car;
-    }
+    }//кожен driver може мати доступ до авто
 
 }

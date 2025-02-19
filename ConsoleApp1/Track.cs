@@ -25,8 +25,11 @@ public class Track
     }
 
 
-    public Car[] GetCars() //повернення масиву cars з метою отримання доступу до авто в Track
+    //запуск гонки
+    public RaceResult StartRace()
     {
-        return this.cars; 
+        RaceResult raceResult = new RaceResult();
+        raceResult.ResultsGonki(new List<Car>(cars.Take(counterCar)));
+        return raceResult;
     }
 }

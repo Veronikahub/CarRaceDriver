@@ -4,6 +4,7 @@ public class Program
 {
     public static void Main()
     {
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
         Console.Write("Введіть ім'я першого гонщика: ");
         string? userDriverName1 = Console.ReadLine();
 
@@ -14,8 +15,8 @@ public class Program
         Driver driver1 = new Driver(userDriverName1, 57, 7);
         Driver driver2 = new Driver(userDriverName2, 44, 5);
 
-        Car car1 = new Car("BMW", "12", 155, 5);
-        Car car2 = new Car("Audi", "17", 140, 3);
+        Car car1 = new Car("Audi", "12", 155, 5);
+        Car car2 = new Car("BMW", "17", 140, 3);
 
 
         driver1.GetCar(car1);
@@ -33,14 +34,13 @@ public class Program
         DriverInfoBefore(driver1);
         DriverInfoBefore(driver2);
 
+        Console.ForegroundColor = ConsoleColor.DarkYellow;
+        LoadingAnimation("Обробка результатів гонки", 1);
+        Console.ResetColor();
 
-
-
-        RaceResult raceResult = new RaceResult();
-        raceResult.ResultsGonki(new List<Car> { car1, car2 });
-
-        
+        RaceResult raceResult = track.StartRace();
         raceResult.Results();
+
 
 
         driver1.UpgrateRating(62);
@@ -52,19 +52,32 @@ public class Program
         DriverInfoAfter(driver1);
         DriverInfoAfter(driver2); 
     }
+     
+     // метод для анімації "очікування результатів"
+    public static void LoadingAnimation(string message, int durationSec)
+    {
+        Console.Write(message);
+        int duration = durationSec * 5; //множення анімації на 5
 
-
+        for (int i = 0; i < duration; i++)
+        {
+            Console.Write("🚗");
+            Thread.Sleep(300); // Затримка крапок
+        }
+        
+        Console.WriteLine();
+    }
 
     public static void DriverInfoBefore(Driver driver)
     {
-        Console.WriteLine($"Гонщик: {driver.Name}, Рейтинг: {driver.Rating}, Досвід: {driver.Expirience}");
+        Console.WriteLine($"Гонщик: {driver.Name}, Рейтинг: {driver.Rating}, Досвід: {driver.Expirience} років");
         driver.Car.CarShowInfo();
     }
 
 
     public static void DriverInfoAfter(Driver driver)
     {
-        Console.WriteLine($"Гонщик: {driver.Name}, Рейтинг: {driver.Rating}, Досвід: {driver.Expirience}");
+        Console.WriteLine($"Гонщик: {driver.Name}, Рейтинг: {driver.Rating}, Досвід: {driver.Expirience} років");
         
     }
 }
