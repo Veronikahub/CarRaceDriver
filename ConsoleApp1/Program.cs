@@ -21,6 +21,12 @@ public class Program
         driver1.GetCar(car1);
         driver2.GetCar(car2);
 
+        Track track = new Track();
+        track.AddCar(car1);
+        track.AddCar(car2);
+
+        
+
         Console.ForegroundColor = ConsoleColor.Blue;
         Console.WriteLine("Інформація про гонщиків до гонки:");
         Console.ResetColor();
