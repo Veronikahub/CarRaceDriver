@@ -14,6 +14,8 @@ public class Program
         Driver driver1 = new Driver(userDriverName1, 57, 7);
         Driver driver2 = new Driver(userDriverName2, 44, 5);
 
+        Car car1 = new Car("BMW", "12", 155, 5);
+        Car car2 = new Car("Audi", "17", 140, 3);
 
 
 
@@ -27,12 +29,11 @@ public class Program
         DriverInfoBefore(driver2);
 
 
+        RaceResult raceResult = new RaceResult();
+        raceResult.ResultsGonki(new List<Car> { car1, car2 });
 
-
-
-
-
-
+        
+        raceResult.Results();
 
 
         driver1.UpgrateRating(62);
@@ -42,13 +43,17 @@ public class Program
         Console.WriteLine("Інформація про гонщиків після гонки:");
         DriverInfoAfter(driver1);
         DriverInfoAfter(driver2);
+
+        
+
+        
     }
 
 
     public static void DriverInfoBefore(Driver driver)
     {
         Console.WriteLine($"Гонщик: {driver.name}, Рейтинг: {driver.rating}, Досвід: {driver.expirience}");
-        
+        driver.Car.CarShowInfo();
     }
 
 
