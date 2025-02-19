@@ -1,12 +1,12 @@
 public class Track
 {
-    public Car[] cars; 
+    public Car[] cars; //створення масиву, що буде зберыгати об'єкти
     public int counterCar; 
 
-
+    //conctructor
     public Track()
     {
-        cars = new Car[2]; 
+        cars = new Car[2];  //створення масиву певної довжини
         counterCar = 0; 
     }
 
@@ -25,7 +25,7 @@ public class Track
     }
 
 
-    public Car[] GetCars()
+    public Car[] GetCars() //повернення масиву cars з метою отримання доступу до авто в Track
     {
         return this.cars; 
     }

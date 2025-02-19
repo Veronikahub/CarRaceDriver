@@ -1,20 +1,23 @@
 public class Driver : Mashina
 {
-    public string name;
+    //fields
+    public string Name;
 
-    public int expirience;
+    public int Expirience;
+    public int Rating;
 
-     public Car Car { get; set; }
+    public Car Car { get; set; }
 
-
+    //conctructor
     public Driver(string name, int rating, int expirience)
         : base(null, rating)
     {
-        this.name = name;
-        this.rating = rating;
-        this.expirience = expirience;
+        this.Name = name;
+        this.Rating = rating;
+        this.Expirience = expirience;
     }
 
+    //methods
     public void UpgrateRating(int newRating)
     {
         rating = newRating; //рейтинг змінюється за підсумками гонки, тому потребує оновлення
